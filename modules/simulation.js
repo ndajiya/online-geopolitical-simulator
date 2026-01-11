@@ -33,6 +33,11 @@ class Simulation {
     this.countries.forEach(country => {
       country.update();
 
+      // Geoeconomic AI decision-making (5% chance per turn)
+      if (Math.random() < 0.05) {
+        country.aiMakeGeoeconomicDecision();
+      }
+
       if (country.democracyIndex < 4) {
         this.countries.forEach(warCountry => {
           let warProbability = 0;
